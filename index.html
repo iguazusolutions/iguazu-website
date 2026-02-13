@@ -1,13 +1,373 @@
-GitHub → index.html → COLE EXATO:
-
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Teste</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iguazu Solutions – AI & Automation That Works 24/7</title>
+    <link rel="icon" type="image/png" href="mBOipFY.png">
+    <link rel="apple-touch-icon" href="mBOipFY.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-enterprise: #f8f9fa;
+            --text-primary: #2D2D2D;
+            --action-blue: #272757;
+            --border-charcoal: #4A4A4A;
+            --white: #FFFFFF;
+            --shadow-pro: 0 10px 40px rgba(0,0,0,0.08);
+            --shadow-hover: 0 20px 60px rgba(39,39,87,0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-enterprise);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img { max-width: 100%; height: auto; }
+        .matrix-bg { display: none; }
+
+        header {
+            position: sticky; top: 0; width: 100%; background: var(--white);
+            box-shadow: var(--shadow-pro); z-index: 1000; padding: 1.2rem 3rem;
+        }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1300px; margin: 0 auto;
+        }
+
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo img { height: 55px; transition: transform 0.3s ease; }
+        .logo img:hover { transform: scale(1.05); }
+        .logo-text {
+            font-family: 'Inter', sans-serif; font-size: 1.8rem; font-weight: 700;
+            color: var(--action-blue);
+        }
+
+        .nav-links {
+            display: flex; list-style: none; gap: 3rem;
+        }
+        .nav-links a {
+            color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 1.05rem;
+            position: relative; transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--action-blue); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -10px; left: 0; width: 0; height: 3px;
+            background: var(--action-blue); transition: width 0.3s ease; border-radius: 2px;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-toggle {
+            display: none; background: var(--action-blue); color: white; border: none;
+            padding: 12px 16px; border-radius: 10px; cursor: pointer; font-weight: 600;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 4rem;
+            background: linear-gradient(135deg, rgba(248,249,250,0.9) 0%, white 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 30%;
+            width: 200vh;
+            height: 100vh;
+            background: url('AfMv8wP.png') no-repeat center center;
+            background-size: contain;
+            opacity: 0.1;
+            transform: translateY(-50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1000px; padding: 2rem 0; position: relative; z-index: 1;
+        }
+        .hero h1 {
+            font-family: 'Orbitron', 'Inter', sans-serif; font-size: 4rem; font-weight: 700;
+            margin-bottom: 2rem; color: var(--text-primary); line-height: 1.1;
+        }
+        .hero p { font-size: 1.2rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .subheadline {
+            font-size: 0.95rem; color: var(--action-blue); margin-bottom: 1.5rem; font-weight: 600;
+        }
+        .cta-button {
+            display: inline-block; padding: 22px 50px; background: var(--action-blue);
+            color: white; font-weight: 600; font-size: 1.25rem; border-radius: 12px;
+            box-shadow: var(--shadow-pro); transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+            text-decoration: none; border: none; cursor: pointer; letter-spacing: 0.5px;
+        }
+        .cta-button:hover {
+            transform: translateY(-6px); box-shadow: var(--shadow-hover);
+            background: #1f1f4a;
+        }
+        .trust-badge {
+            margin-top: 3.5rem; font-size: 1.1rem; color: var(--border-charcoal);
+            font-weight: 500;
+        }
+
+        .section {
+            padding: 8rem 4rem; max-width: 1400px; margin: 0 auto;
+        }
+        .section h2 {
+            font-family: 'Inter', sans-serif; font-size: 3.5rem; text-align: center;
+            margin-bottom: 2.5rem; color: var(--text-primary); font-weight: 600;
+        }
+        .section-intro {
+            text-align: center; font-size: 1.4rem; margin-bottom: 5rem; color: var(--text-primary);
+            max-width: 900px; margin-left: auto; margin-right: auto; opacity: 0.9;
+        }
+
+        .services-grid, .process-steps, .results-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 3.5rem; margin-top: 4rem;
+        }
+        .service-card, .step {
+            background: var(--white); padding: 3.5rem 3rem; border-radius: 24px;
+            box-shadow: var(--shadow-pro); transition: all 0.4s ease; border: 1px solid rgba(74,74,74,0.08);
+        }
+        .service-card:hover, .step:hover {
+            transform: translateY(-12px); box-shadow: var(--shadow-hover);
+        }
+        .service-card h3, .step h3 {
+            font-family: 'Inter', sans-serif; color: var(--action-blue); margin-bottom: 1.5rem;
+            font-size: 1.6rem; font-weight: 600;
+        }
+        .step-number {
+            width: 80px; height: 80px; background: var(--action-blue); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; font-weight: 700; margin: 0 auto 2rem; box-shadow: var(--shadow-pro);
+        }
+
+        .results-section {
+            background: linear-gradient(135deg, white 0%, #f8f9fa 100%);
+            padding: 8rem 4rem; margin: 6rem 0; border-radius: 32px; box-shadow: var(--shadow-pro);
+        }
+        .result-stat { text-align: center; padding: 3.5rem 2rem; }
+        .result-number {
+            font-family: 'Orbitron', sans-serif; font-size: 4.2rem; color: var(--action-blue);
+            font-weight: 700; display: block; margin-bottom: 1rem;
+        }
+        .result-label { font-size: 1.3rem; font-weight: 500; color: var(--text-primary); }
+
+        .contact-form {
+            max-width: 800px; margin: 0 auto; background: var(--white);
+            padding: 5rem; border-radius: 28px; box-shadow: var(--shadow-pro); border: 1px solid rgba(74,74,74,0.1);
+        }
+        .form-group { margin-bottom: 2.5rem; }
+        .form-group label {
+            display: block; margin-bottom: 1rem; color: var(--action-blue); font-weight: 600; font-size: 1.1rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 20px; background: #fafbfc; border: 2px solid rgba(74,74,74,0.15);
+            border-radius: 16px; color: var(--text-primary); font-size: 1.15rem; font-weight: 400;
+            transition: all 0.3s ease; font-family: 'Inter', sans-serif;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--action-blue); background: white; box-shadow: var(--shadow-pro);
+        }
+        .phone-hint {
+            font-size: 1rem; color: var(--border-charcoal); margin-top: 0.8rem; font-weight: 400;
+        }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { animation: fadeInUp 1.2s ease forwards; }
+        .message {
+            padding: 2rem; border-radius: 16px; margin-bottom: 2rem; text-align: center; font-weight: 500;
+        }
+        .message.success { background: rgba(40,167,69,0.1); border: 2px solid #28a745; color: #28a745; }
+        .message.error { background: rgba(220,53,69,0.1); border: 2px solid #dc3545; color: #dc3545; }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 80px; left: 2rem; right: 2rem;
+                background: var(--white); flex-direction: column; gap: 2rem; padding: 2.5rem;
+                border-radius: 20px; box-shadow: var(--shadow-pro);
+            }
+            .nav-toggle { display: block; }
+            .hero { padding: 90px 2rem 5rem; }
+            .hero h1 { font-size: 2.4rem; }
+            .section { padding: 6rem 2rem; }
+            .services-grid, .process-steps { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-<h1>✅ TESTE VIVO - SEM REDIRECT</h1>
-<script>console.log('JS roda mas NÃO redireciona');</script>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="AfMv8wP.png" alt="Iguazu Solutions">
+                <span class="logo-text">Iguazu Solutions</span>
+            </div>
+            <button class="nav-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Solutions</a></li>
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="#contact">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Businesses that scale work when the owner doesn't.</h1>
+            <p class="subheadline">If your revenue depends on you being there, answering calls, or chasing reviews — you don't own a business. You own a job.</p>
+            <p>What is your bottleneck? Let's find it. Book your analysis now.</p>
+            <a href="#contact" class="cta-button">BOOK YOUR FREE CONSULTATION</a>
+            <p class="trust-badge">⚡ 30-minute call • Zero commitment • Real solutions</p>
+        </div>
+    </section>
+
+    <div class="results-section">
+        <div class="results-grid">
+            <div class="result-stat fade-in-up">
+                <span class="result-number">24/7</span>
+                <span class="result-label">Always Working</span>
+            </div>
+            <div class="result-stat fade-in-up">
+                <span class="result-number">80%</span>
+                <span class="result-label">Time Saved</span>
+            </div>
+            <div class="result-stat fade-in-up">
+                <span class="result-number">3x</span>
+                <span class="result-label">Faster Response</span>
+            </div>
+            <div class="result-stat fade-in-up">
+                <span class="result-number">$0</span>
+                <span class="result-label">Human Errors</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="services" class="section">
+        <h2>WHAT WE AUTOMATE</h2>
+        <p class="section-intro">Stop paying people to do what software can do better, faster, and cheaper</p>
+        <div class="services-grid">
+            <div class="service-card fade-in-up">
+                <h3>🤖 AI Chatbots</h3>
+                <p>WhatsApp bots that answer questions, qualify leads, and book meetings while you sleep. Every conversation captured. Every opportunity tracked.</p>
+            </div>
+            <div class="service-card fade-in-up">
+                <h3>⚡ Process Automation</h3>
+                <p>If your team does it more than twice a week, we can automate it. Data entry, follow-ups, reporting—done without lifting a finger.</p>
+            </div>
+            <div class="service-card fade-in-up">
+                <h3>🔗 System Integration</h3>
+                <p>Your CRM talks to your email. Your email talks to your spreadsheets. Everything syncs perfectly. No more copy-pasting between platforms.</p>
+            </div>
+            <div class="service-card fade-in-up">
+                <h3>📊 Smart Dashboards</h3>
+                <p>Real-time data. Automatic reports. Know exactly what's working and what's not—without hunting through five different tools.</p>
+            </div>
+            <div class="service-card fade-in-up">
+                <h3>🎯 Lead Qualification</h3>
+                <p>Your sales team only talks to people ready to buy. AI filters, scores, and ranks every lead before it hits your inbox.</p>
+            </div>
+            <div class="service-card fade-in-up">
+                <h3>🚀 Strategic Consulting</h3>
+                <p>We audit your workflows, find the bottlenecks, and show you where automation saves hours every single day.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section">
+        <h2>HOW WE WORK</h2>
+        <p class="section-intro">Simple process. Real results. No tech headaches.</p>
+        <div class="process-steps">
+            <div class="step fade-in-up">
+                <div class="step-number">1</div>
+                <h3>Discovery Call</h3>
+                <p>Free 30-minute consultation where we map your pain points and identify automation opportunities.</p>
+            </div>
+            <div class="step fade-in-up">
+                <div class="step-number">2</div>
+                <h3>Custom Blueprint</h3>
+                <p>We design a tailored automation strategy that fits your business—not a cookie-cutter template.</p>
+            </div>
+            <div class="step fade-in-up">
+                <div class="step-number">3</div>
+                <h3>Build & Test</h3>
+                <p>We build, configure, and thoroughly test everything before going live. You approve every step.</p>
+            </div>
+            <div class="step fade-in-up">
+                <div class="step-number">4</div>
+                <h3>Launch & Support</h3>
+                <p>We train your team, launch your automation, and provide ongoing support to ensure peak performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>READY TO AUTOMATE?</h2>
+        <p class="section-intro">Book your free consultation. Let's identify where automation can save you 10+ hours per week.</p>
+        <div class="contact-form">
+            <div id="form-messages"></div>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Mobile</label>
+                    <input type="text" id="phone" name="phone" placeholder="0404 555 777" required>
+                    <span class="phone-hint">Enter full number</span>
+                </div>
+                <div class="form-group">
+                    <label for="message">What processes are wasting your time?</label>
+                    <textarea id="message" name="message" rows="4" placeholder="E.g., Answering the same questions on WhatsApp, manual data entry, follow-up emails..."></textarea>
+                </div>
+                <button type="submit" class="cta-button">SEND IT</button>
+            </form>
+        </div>
+    </section>
+
+   <script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const formData = new FormData(this);
+  
+  try {
+    const response = await fetch('https://webhook.iguazusolutions.com/webhook/iguazu_solutions', {
+      method: 'POST',
+      body: formData
+    });
+    
+    if (response.ok) {
+      alert('✅ Mensagem enviada! Obrigado!');
+      this.reset();
+    } else {
+      alert('❌ Erro. Tenta de novo.');
+    }
+  } catch (error) {
+    alert('❌ Erro de conexão.');
+  }
+});
+</script>
+
 </body>
 </html>
